@@ -1,0 +1,91 @@
+<div class="form">
+    <div>
+        <h1>Welcome</h1>
+        <form [formGroup]="loginObj">
+        
+            <input  placeholder="userName" type="text" formControlName="user_name" name="" required>
+            
+            <input  placeholder="userPassword" type="password" formControlName="user_password" name="" required>
+            <div class="userType">
+                <div>
+                    <input type="radio" name="user_type" value="client" id="client" formControlName="user_type" required/>
+                    <label for="client">Regular User</label>
+                </div>
+            
+                <div>
+                    <input type="radio"  name="user_type" id="company" value="company" formControlName="user_type" />
+                <label for="company"> Company </label>
+                </div>
+            </div>
+            <span>{{errorMsg}} </span>
+            <button id="loginButton" (click)="onLogin()"> login </button>
+            <span class="signUp">Don't have an account ?</span>
+            <span class="signUp">Plaese sign up!</span>
+    
+            <a id="signupLink" href='/signup' >Sign In</a>
+            
+        </form>
+    </div>
+
+    
+</div>
+
+<!-- <br>
+<br>
+    <div class="cont">
+        <div class="form sign-in">
+            <h2>Welcome</h2>
+            <label>
+                <span>Email</span>
+                <input type="email" />
+            </label>
+            <label>
+                <span>Password</span>
+                <input type="password" />
+            </label>
+            <p class="forgot-pass">Forgot password?</p>
+            <button type="button" class="submit">Sign In</button>
+         
+        </div>
+        <div class="sub-cont">
+            <div class="img">
+                <div class="img__text m--up">
+                    
+                    <h3>Don't have an account? Please Sign up!</h3>
+
+                </div>
+                <div class="img__text m--in">
+                
+                    <h3>If you already has an account, just sign in.</h3>
+
+                </div>
+                <div class="img__btn">
+                    <span class="m--up">Sign Up</span>
+                    <span class="m--in">Sign In</span>
+                </div>
+            </div>
+            <div class="form sign-up">
+                <h2>Create your Account</h2>
+                <label>
+                    <span>Name</span>
+                    <input type="text" />
+                </label>
+                <label>
+                    <span>Email</span>
+                    <input type="email" />
+                </label>
+                <label>
+                    <span>Password</span>
+                    <input type="password" />
+                </label>
+                <button type="button" class="submit">Sign Up</button>
+                
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelector('.img__btn').addEventListener('click', function(){
+            document.querySelector('.cont').classList.toggle('s--signup');
+        });
+    </script> -->

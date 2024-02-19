@@ -1,0 +1,62 @@
+
+
+
+<div class="form">
+    <div>
+        <div class="userType">
+            <div>
+                <input style="background-color: red;" type="radio" id="client-form-btn" [defaultChecked]="true" name="userType" value="client" required (click)="toggleForm('client')"/>
+                <label for="client-form-btn">Regular User</label>
+            </div>
+        <span>|</span>
+            <div>
+                <input type="radio" id="company-form-btn" name="userType" value="company" (click)="toggleForm('company')" />
+                <label for="company-form-btn">Company</label>
+            </div>
+        </div>
+        
+        <form [formGroup]="clientObj" style="display: flex;" id="client-form">
+    
+            <input  placeholder="Full name" type="text" formControlName="full_name" name="full_name" >
+            <span> </span>
+
+            <input  placeholder="Email" type="text" formControlName="email" name="email" >
+            <span> </span>
+            <input  placeholder="Phone number" type="text" formControlName="phone_number" name="phone_number" >
+            <span> </span>
+            <input  placeholder="User name" type="text" formControlName="user_name" name="user_name" >
+            <span> </span>
+            <input  placeholder="Password" type="password" formControlName="user_password" name="user_password" >
+            <button class="loginButton" (click)="OnsignupClient()"> Sign In </button>
+            <span class="signUp">already have an account ?</span>
+
+            <a id="signupLink" href='/login' >Login</a>
+
+        </form>
+    
+    
+        <form [formGroup]="companyObj" style="display: none;" id="company-form">
+    
+            <input  placeholder="Company's name" type="text" formControlName="business_name" name="business_name" >
+            <span> </span>
+            <input  placeholder="Type of business" type="text" formControlName="type_of_business" name="type_of_business" >
+            <span> </span>
+            <input  placeholder="Business email" type="text" formControlName="business_email" name="business_email" >
+            <span> </span>
+            <input  placeholder="Business Phone" type="text" formControlName="business_phone" name="business_phone" >
+            <span> </span>
+            <input  placeholder="Address" type="text" formControlName="address" name="address" >
+            <span> </span>
+            <input  placeholder="User name" type="text" formControlName="user_name" name="user_name" >
+            <span> </span>
+            <input  placeholder="Password" type="password" formControlName="user_password" name="user_password" id="">
+            <button class="loginButton" (click)="OnsignupCompany()"> Sign In </button>
+            <span class="signUp"> already have an account ?</span>
+
+            
+            <a id="signupLink" href='/login' >Login</a>
+
+        </form>
+    
+    </div>
+</div>
