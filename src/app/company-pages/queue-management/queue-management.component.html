@@ -1,0 +1,62 @@
+<form [formGroup] = "quee_form">
+    <mat-card>
+        <mat-card-header>
+            <mat-card-title>
+                Queue Information
+            </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <div class="row">
+                <mat-form-field>
+                    <mat-label> Queue Name </mat-label>
+                    <input matInput  type="text" formControlName="queue_name">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field>
+                    <mat-label> Queue type </mat-label>
+                        <mat-select id="Queue type" formControlName="queue_type">
+                            <mat-option   *ngFor="let option of queue_types" [value]="option.value">
+                                {{option.viewValue}}
+                            </mat-option>     
+                        </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field>
+                    <mat-label> Queue Capacity </mat-label>
+                    <input matInput  type="number" formControlName="queue_capacity" step=10 max=2000>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                
+                <mat-form-field>
+                    <mat-label> Starting time</mat-label>
+                        <!-- <input matInput formControlName="time_start" type="time"> -->
+                        <input matInput formControlName="time_start" aria-label="24hr format" [ngxTimepicker]="starting_time" [format]="24"  readonly>
+                        <ngx-material-timepicker #starting_time></ngx-material-timepicker>
+                   
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field>
+                    <mat-label> Ending time</mat-label>
+                    <!-- <input matInput formControlName="time_end" formControlName="time_end" type="time"> -->
+                    <input matInput formControlName="time_end" aria-label="24hr format" [ngxTimepicker]="ending_time" [format]="24"  readonly>
+                        <ngx-material-timepicker #ending_time></ngx-material-timepicker>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field>
+                    <mat-select placeholder="type of notification" formControlName="notification_type">
+                        <mat-option *ngFor="let option of notification_options" [value]="option.value">
+                          {{option.viewValue}}
+                        </mat-option>
+                      </mat-select>
+                </mat-form-field>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <button mat-button (click)="submitForm()">Submit</button>
+</form>
+<button mat-button (click)="getQueues()">get queues</button>

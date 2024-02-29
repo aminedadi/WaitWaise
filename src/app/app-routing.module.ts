@@ -6,12 +6,17 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { DashbordComponent } from './components/dashbord/dashbord.component';
+import { AboutPageComponent } from './components/about-page/about-page.component';
+import { QueueManagementComponent } from './company-pages/queue-management/queue-management.component';
 
 const routes: Routes = [
+  
   { path:'login', component: LoginComponent},
   { path:'signup', component: SignupComponent},
   { path:'main-page', component : MainPageComponent},
   { path:'dashbord', component : DashbordComponent},
+  { path:'about', component : AboutPageComponent},
+  { path:'queue-management', component : QueueManagementComponent},
   { path:'page-not-found' , component : PageNotFoundComponent},
   { path:'', redirectTo: './main-page', pathMatch: 'full' },
   { path:'**', redirectTo: './page-not-found'},

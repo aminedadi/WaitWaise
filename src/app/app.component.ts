@@ -1,13 +1,13 @@
 import {Socket, io} from 'socket.io-client'
 import { Observable } from 'rxjs';
 import { Component, Inject, OnInit } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router } from '@angular/router';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AuthService } from './services/auth.service';
 //import { SocketService } from './services/socket.service';
 
 
-RouterOutlet
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

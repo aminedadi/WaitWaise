@@ -38,6 +38,7 @@ export class LoginComponent {
     this.cnx.loginRequest(this.loginObj.value).subscribe((res:any)=>{
       if(!res.success){
         this.errorMsg = res.message;
+        console.log("error msg from login comp " + this.errorMsg);
         setTimeout(()=>{ this.errorMsg = ""},4000)
       }else{
         this.router.navigateByUrl('dashbord');

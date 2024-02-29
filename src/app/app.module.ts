@@ -6,9 +6,14 @@ import { bootstrapApplication } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 
+
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 
@@ -24,13 +29,15 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 @NgModule({
     declarations: [AppComponent],
     imports: [
-        /* SocketIoModule.forRoot(config), */
         BrowserModule,
         AppRoutingModule,
         MainPageComponent,
         PageNotFoundComponent,
-        HttpClientModule
+        HttpClientModule,
+        NavBarComponent,
+        BrowserAnimationsModule,
         
+      /* SocketIoModule.forRoot(config), */  
     ],
     bootstrap:[AppComponent],
     providers:[HttpClient]
