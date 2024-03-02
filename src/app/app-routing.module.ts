@@ -8,14 +8,18 @@ import { SignupComponent } from './components/signup/signup.component';
 import { DashbordComponent } from './components/dashbord/dashbord.component';
 import { AboutPageComponent } from './components/about-page/about-page.component';
 import { QueueManagementComponent } from './company-pages/queue-management/queue-management.component';
+import { companyGuard } from './Guards/companyGuard.guard';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { clientGuard } from './Guards/client-guard.guard';
 
 const routes: Routes = [
   
   { path:'login', component: LoginComponent},
   { path:'signup', component: SignupComponent},
   { path:'main-page', component : MainPageComponent},
-  { path:'dashbord', component : DashbordComponent},
-  { path:'about', component : AboutPageComponent},
+  { path:'home', component : MainPageComponent},
+  { path:'dashbord', component : DashbordComponent, canActivate: [companyGuard]},
+  { path:'about', component : AboutPageComponent, canActivate: [clientGuard]},
   { path:'queue-management', component : QueueManagementComponent},
   { path:'page-not-found' , component : PageNotFoundComponent},
   { path:'', redirectTo: './main-page', pathMatch: 'full' },
@@ -24,6 +28,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+
 })
 export class AppRoutingModule { }

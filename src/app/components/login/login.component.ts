@@ -41,10 +41,12 @@ export class LoginComponent {
         console.log("error msg from login comp " + this.errorMsg);
         setTimeout(()=>{ this.errorMsg = ""},4000)
       }else{
-        this.router.navigateByUrl('dashbord');
-      
+        this.auth.saveToken(res.accessToken);
+        
+        this.router.navigateByUrl('home').then(() => {
+          window.location.reload();
+        });
       }      
-      this.auth.saveToken(res.accessToken);
       /* window.localStorage.setItem('TokenKey',res.accessToken); */
       //console.log("AccessToken : " + res.accessToken)
       console.log(res)

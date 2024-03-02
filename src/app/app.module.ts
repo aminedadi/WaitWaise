@@ -12,6 +12,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 
 
 
@@ -40,6 +41,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
       /* SocketIoModule.forRoot(config), */  
     ],
     bootstrap:[AppComponent],
-    providers:[HttpClient]
+    providers:[HttpClient, { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+      JwtHelperService  ]
 })
 export class AppModule { }

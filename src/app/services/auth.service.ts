@@ -13,7 +13,7 @@ const TOKEN_KEY = 'accessToken';
 
 export class AuthService {
   constructor(private router : Router) {}
-
+  
 
   public saveToken(token : string): void {
     window.localStorage.removeItem('TOKEN_KEY');
@@ -32,20 +32,22 @@ export class AuthService {
     const jwtToken = this.getToken();
       const decodedToken: any = this.getToken() != null ? jwt_decode.jwtDecode(jwtToken as string) : null;
       const userId = decodedToken != null ? decodedToken?.id : null;
+      
     return userId;
   }
   public getRole(){
     const jwtToken = this.getToken();
       const decodedToken: any = this.getToken() != null ? jwt_decode.jwtDecode(jwtToken as string) : null;
       const userRole = decodedToken != null ? decodedToken?.Role : null;
+      console.log("userRole " + userRole);
     return userRole;
   }
 
-    signOut(): void {
-      window.sessionStorage.clear();
-      this.router.navigate(['/Home'])
-      .then(() => {
-        window.location.reload();
-      });
-    }
-  }        
+  signOut(): void {
+    window.localStorage.removeItem(TOKEN_KEY);
+    this.router.navigate(['/login'])
+    .then(() => {
+      window.location.reload();
+    });
+  }
+}        

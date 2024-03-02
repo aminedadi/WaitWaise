@@ -9,7 +9,7 @@ import { SocketService } from '../../services/socket.service';
 })
 
 export class MainPageComponent implements OnInit {
-  constructor(/* @Inject('Socket') */  private socketService : SocketService){}
+//  constructor(/* @Inject('Socket') */  private socketService : SocketService){}
 
   
   ngOnInit() {
@@ -20,10 +20,10 @@ export class MainPageComponent implements OnInit {
 
 
 
-    console.log(this.socketService.connetcion());
+   /*  console.log(this.socketService.connetcion());
     this.socketService.emitEvent('getTurnNumber', null);
     
-    this.socketService.onEvent('turnNumber').subscribe(msg =>{this.message = msg});
+    this.socketService.onEvent('turnNumber').subscribe(msg =>{this.message = msg}); */
   /*   this.socketService.onEvent('message').subscribe(msg =>{this.message = msg}); */
   }
 

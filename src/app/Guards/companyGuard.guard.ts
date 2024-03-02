@@ -10,7 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class AuthGuard implements CanActivate {
+export class companyGuard implements CanActivate {
   constructor(
     public authService: AuthService,
     public router: Router,
@@ -27,24 +27,29 @@ export class AuthGuard implements CanActivate {
         ? jwt_decode.jwtDecode(jwtToken as string)
         : null;
     const userRole = decodedToken != null ? decodedToken.Role : null;
+    console.log('role ' + userRole);
+    console.log('routeData ' +  JSON.stringify(route.data));
+    const isCompany = this.authService.getRole() === 'company' ;
 
-    if (!jwtToken || this.jwtHelper.isTokenExpired(jwtToken)) {
+    if (!jwtToken /* || this.jwtHelper.isTokenExpired(jwtToken) */) {
       // Check if the token is missing or expired
-      if (this.jwtHelper.isTokenExpired(this.authService.getToken())) {
+      /* if (this.jwtHelper.isTokenExpired(this.authService.getToken())) {
        alert(
           'Your session has expired. Please log in again.' );
         this.authService.signOut();
-        this.router.navigate(['/signup'], {
+        this.router.navigate(['/login'], {
           queryParams: { returnUrl: state.url },
         });
-      } else {
+      } else { */
         alert('Access Denied!');
-        this.router.navigate(['/signup'], {
-          queryParams: { returnUrl: state.url },
-        });
-      }
+       
+          this.router.navigate(['/login'], {
+            queryParams: { returnUrl: state.url }});
+       
+
+      /* } */
     } else {
-      if (route.data['role'] && route.data['role'].indexOf(userRole) === -1) {
+      if (!isCompany) {
         // Check if the user's role is not granted access
        alert('Access Denied! Role Not Granted.');
         this.router.navigate(['/'], {
