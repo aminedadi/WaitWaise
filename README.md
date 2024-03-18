@@ -1,3 +1,11 @@
+✔️ Jason Web Token
+✔️ Angular AuthGuard
+✔️ Socket.io service
+✔️ life cycle hook
+✔️ rxjs functions
+〰️ Notification service
+〰️ lazy laoding
+
 # App
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.5.
