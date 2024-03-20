@@ -1,6 +1,6 @@
 WaitWise a web application that helps companies manage client queues and notify them about their turn, reducing wait times and improving customer satisfaction.
 
-Featurs included in this app :
+Features included in this app :
 ✔️ Jason Web Token
 ✔️ Angular AuthGuard
 ✔️ life cycle hook
